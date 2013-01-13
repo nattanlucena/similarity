@@ -1,15 +1,23 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
 public class Teste {
 
 	public Teste(){
-
-		java.util.Scanner sc = new java.util.Scanner(System.in); 
 		
-		int T = sc.nextInt();
-		//System.out.println(T);
+		try {
 			
+	//	java.util.Scanner sc = new java.util.Scanner(System.in); 
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		int T;
+		
+			T = Integer.parseInt(br.readLine());
+		
+		
 		for(int i =0; i < T ; i++){
 			
-			String s1 =	sc.next();
+			String s1 =	br.readLine();
 			String s2;
 			int size = s1.length();
 			int result = size;
@@ -17,11 +25,21 @@ public class Teste {
 			for (int a=0; a < size; a++){
 				s2 = s1.substring(a+1, size);
 				result += this.compare(s2, s1);
-				//System.out.println(s2);
+				
 			}
-			
 			System.out.println(result);
+		
 		}	
+		
+		} catch (NumberFormatException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
 	}
 	
 
